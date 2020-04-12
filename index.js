@@ -37,10 +37,21 @@ function readmePrompts () {
         name: "usage"
     },
     {
-        type: "input",
-        message: "What license is this project under?",
-        name: "license"
+        type: "list",
+        message: "Please select a license for this project:",
+        name: "license",
+        choices: [
+            'MIT license',
+            'GNU General Public License v3',
+            'Apache License 2.0',
+            'Mozilla Public License 2.0'
+        ]
     },
+    // {
+    //     type: "input",
+    //     message: "What license is this project under?",
+    //     name: "license"
+    // },
     {
         type: "input",
         message: "Who are the contributors to this project?",
@@ -58,6 +69,9 @@ async function init() {
     try {
         const readmeAnswers = await readmePrompts();
         await api.getUser(readmeAnswers.username).then(function (result) {
+            console.log(result);
+             
+
             readmeAnswers.image = result.data.avatar_url;
             readmeAnswers.name = result.data.name;
         });
@@ -65,24 +79,14 @@ async function init() {
         await asyncWriteFile("README.md", readmeMD);
         console.log("README.md successfully created!");
     } catch (err) {
-        console.log("Error" + err);
+        console.log(err);
     }
 }
 
 
 init();
 
-// {
-//     type: "list",
-//     message: "Please select a license for this project:",
-//     name: "license",
-//     choices: [
-//         'MIT license',
-//         'GNU General Public License v3',
-//         'Apache License 2.0',
-//         'Mozilla Public License 2.0'
-//     ]
-// },
+
 // function writeToFile(data) {
 //     console.log(data);
 //     // variables
@@ -99,12 +103,7 @@ init();
 //     })
 
     
-//     let license = 
-//     data.license === "MIT license" ? "[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)]" :
-//     data.license === "GNU General Public License v3" ? "[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)]" :
-//     data.license === "Apache License 2.0" ? "[![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)]" :
-//     "[![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)]" 
-
+    
 
 //     fs.writeFile(`${data.title}.md`), readmeTemplate, function(err) {
 //         if(err) {

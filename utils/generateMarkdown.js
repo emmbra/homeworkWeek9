@@ -1,4 +1,9 @@
 function generateMarkdown(data) {
+let license = 
+data.license === "MIT license" ? "[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)]" :
+data.license === "GNU General Public License v3" ? "[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)]" :
+data.license === "Apache License 2.0" ? "[![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)]" :
+"[![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)]"
 return `
 # ${data.title}
 
@@ -19,17 +24,18 @@ ${data.install}
 ${data.usage}
 
 ## License
-This project is licensed under: ${data.license} license.
+This project is licensed under: ${data.license}.
 
 ## Contributing
 ${data.contributors}
 
 ## Tests
-${data.test}
+${data.tests}
 
 ## Questions
-<img src = "${data.avatar_url}" alt ="profile avatar"/>
-Please contact [${data.login}](${data.html_url}) directly at ${data.accountemail}
+<img src = "${data.image}" alt ="GitHub user picture"/>
+<br/>
+For any questions or comments, email ${data.name} directly at <a href ="mailto${data.email}">${data.email}</a>
 `;
 }
 
