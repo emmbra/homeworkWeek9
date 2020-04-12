@@ -76,7 +76,7 @@ async function init() {
             readmeAnswers.name = result.data.name;
         });
         const readmeMD = generateMarkdown(readmeAnswers);
-        await asyncWriteFile("README.md", readmeMD);
+        await asyncWriteFile("./generated-readme/README.md", readmeMD);
         console.log("README.md successfully created!");
     } catch (err) {
         console.log(err);
