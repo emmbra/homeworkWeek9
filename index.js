@@ -2,8 +2,10 @@ const fs = require("fs");
 const inquirer = require("inquirer");
 const api = require("./utils/api.js");
 const generateMarkdown = require("./utils/generateMarkdown.js");
-
-const questions = [
+const util = require("util");
+const asyncWriteFile = util.promisify(fs.writeFile);
+function questionPrompts () {
+    return inquirer.prompt([
     {
         type: "input",
         message: "What is your GitHub username?",
@@ -56,53 +58,48 @@ const questions = [
         message: "How has this project been tested?",
         name: "tests"
     }
-];
+]);
+}
 
-function writeToFile(data) {
-    console.log(data);
-    // variables
-    let contributors = data.contributing.split(",");
-    let contributorsArray = [];
-    contributors.map(username => contributorsArray.push(username.trim()));
-    let contributorsString = "";
-    contributorsArray.map(username => {
-        contributorsString += `[${username}]("https://github.com/${username}")\n \n`
-    })
-    let tableOfContents = "";
-    data.table.map(contents => {
-        tableOfContents += `*[${contents}](#${contents.toLowerCase().trim()})\n \n`
-    })
+// function writeToFile(data) {
+//     console.log(data);
+//     // variables
+//     let contributors = data.contributing.split(",");
+//     let contributorsArray = [];
+//     contributors.map(username => contributorsArray.push(username.trim()));
+//     let contributorsString = "";
+//     contributorsArray.map(username => {
+//         contributorsString += `[${username}]("https://github.com/${username}")\n \n`
+//     })
+//     let tableOfContents = "";
+//     data.table.map(contents => {
+//         tableOfContents += `*[${contents}](#${contents.toLowerCase().trim()})\n \n`
+//     })
 
     
-    let license = 
-    data.license === "MIT license" ? "[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)]" :
-    data.license === "GNU General Public License v3" ? "[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)]" :
-    data.license === "Apache License 2.0" ? "[![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)]" :
-    "[![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)]" 
+//     let license = 
+//     data.license === "MIT license" ? "[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)]" :
+//     data.license === "GNU General Public License v3" ? "[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)]" :
+//     data.license === "Apache License 2.0" ? "[![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)]" :
+//     "[![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)]" 
 
 
-    fs.writeFile(`${data.title}.md`), readmeTemplate, function(err) {
-        if(err) {
-            console.log(err);
-            throw err;
-        } else {
-            console.log("It worked!");
-        }
-    }
-};
-
+//     fs.writeFile(`${data.title}.md`), readmeTemplate, function(err) {
+//         if(err) {
+//             console.log(err);
+//             throw err;
+//         } else {
+//             console.log("It worked!");
+//         }
+//     }
+// };
 
 
 function init() {
-    inquirer
-    .prompt(questions)
-    .then(response => {
-        console.log(response);
-        axios.get(`https://api.github.com/users/${response.username}`).then(data => {
-            writeToFile({...response, ...data.data})
-        }).catch(err => console.log(err));
-    })
-    .catch(err => console.log(err));
-}
+    try {
+        inquirer.prompt(questions).then(response => {
+    }
+    
+
 
 init();
