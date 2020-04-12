@@ -1,5 +1,6 @@
 function generateMarkdown(data) {
 let license = data.license;
+// switch statement to insert badge based on user selected license
 switch (license) {
   case "MIT License":
     data.license = "MIT License ![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)";
@@ -17,6 +18,7 @@ switch (license) {
     data.license = "MIT License ![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)";
     break;
 }
+// README text template
 return `
 # ${data.title}
 

@@ -1,8 +1,12 @@
 const fs = require("fs");
 const inquirer = require("inquirer");
+// require modularized api call from axios
 const api = require("./utils/api.js");
+// require modularized function for generating markdown files
 const generateMarkdown = require("./utils/generateMarkdown.js");
+// require util to make functions promises
 const util = require("util");
+// promisify the function so it can be used asynchronously and so .then and .catch can be called on it
 const asyncWriteFile = util.promisify(fs.writeFile);
 function readmePrompts () {
     return inquirer.prompt([
@@ -71,8 +75,8 @@ async function init() {
         const readmeMD = generateMarkdown(readmeAnswers);
         await asyncWriteFile("./generated-readme/README.md", readmeMD);
         console.log("README.md successfully created!");
-    } catch (err) {
-        console.log(err);
+    } catch (e) {
+        console.log("Error!" + e);
     }
 }
 
