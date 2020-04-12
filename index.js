@@ -40,7 +40,7 @@ const questions = [
         name: "license",
         choices: [
             'MIT license',
-            'GNU General Public License',
+            'GNU General Public License v3',
             'Apache License 2.0',
             'Mozilla Public License 2.0'
         ]
@@ -57,7 +57,7 @@ const questions = [
     }
 ];
 
-function writeToFile(fileName, data) {
+function writeToFile(data) {
     console.log(data);
     // variables
     let contributors = data.contributing.split(",");
@@ -72,11 +72,12 @@ function writeToFile(fileName, data) {
         tableOfContents += `*[${contents}](#${contents.toLowerCase().trim()})\n \n`
     })
 
+    
     let license = 
     data.license === "MIT license" ? "[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)]" :
-    data.license === "GNU General Public License" ? "[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)]" :
+    data.license === "GNU General Public License v3" ? "[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)]" :
     data.license === "Apache License 2.0" ? "[![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)]" :
-    data.license === "Mozilla Public License 2.0" ? "[![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)]" 
+    "[![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)]" 
 
 
     // using template literal to build structure of readme
@@ -103,11 +104,13 @@ function writeToFile(fileName, data) {
     ${contributors}
 
     ## Tests
-    ${tests}
+    In terminal, run the following command:
+
+    npm test
 
     ## Questions
     <img src = "${data.avatar_url}" alt ="profile avatar"/>
-    Please contact [$(data.login)](${data.html_url}) at ${data.blog}.
+    Please contact [${data.login}](${data.html_url}) directly at ${data.email}.
     `
 
     fs.writeFile(`${data.title}.md`), readmeTemplate, function(err) {
@@ -117,8 +120,7 @@ function writeToFile(fileName, data) {
         } else {
             console.log("It worked!");
         }
-    })
-
+    }
 };
 
 
@@ -128,11 +130,11 @@ function init() {
     .prompt(questions)
     .then(response => {
         console.log(response);
-        axios.get(`https://api.github.com/users${response.username}`).then(data=>{
+        axios.get(`https://api.github.com/users/${response.username}`).then(data => {
             writeToFile({...response, ...data.data})
-        }).catch(err => console.log(err))
+        }).catch(err => console.log(err));
     })
-    .catch(err => console.log(err))
+    .catch(err => console.log(err));
 }
 
 init();
