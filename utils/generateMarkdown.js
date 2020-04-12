@@ -28,7 +28,8 @@ ${data.description}
 * [Usage](#Usage)
 * [License](#License)
 * [Tests](#Tests) 
-* [Contribute](#Contribute)
+* [Contributors](#Contributors)
+* [Questions](#Questions)
 
 ## Installation
 ${data.install}
@@ -39,11 +40,11 @@ ${data.usage}
 ## License
 This project is licensed under: ${data.license}.
 
-## Contributing
-${data.contributors}
-
 ## Tests
 ${data.tests}
+
+## Contributors
+${data.contributors}
 
 ## Questions
 <img src = "${data.image}" alt ="GitHub user picture"/>

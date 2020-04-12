@@ -5,11 +5,11 @@
 
 
 ## Table of Contents
-* [Installation](##Installation)
-* [Usage](##Usage)
-* [License](##License)
-* [Tests](##Tests) 
-* [Contribute](##Contribute)
+* [Installation](#Installation)
+* [Usage](#Usage)
+* [License](#License)
+* [Tests](#Tests) 
+* [Contribute](#Contribute)
 
 ## Installation
 
