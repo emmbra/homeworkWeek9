@@ -48,7 +48,7 @@ ${data.tests}
 ## Questions
 <img src = "${data.image}" alt ="GitHub user picture"/>
 <br/>
-For any questions or comments, email ${data.name} directly at <a href ="mailto${data.email}">${data.email}</a>
+For any questions or comments, email ${data.name} directly at <a href ="mailto${data.email}">${data.email}</a>.
 `;
 }
 

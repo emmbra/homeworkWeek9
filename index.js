@@ -76,37 +76,6 @@ async function init() {
     }
 }
 
-
 init();
-
-
-// function writeToFile(data) {
-//     console.log(data);
-//     // variables
-//     let contributors = data.contributing.split(",");
-//     let contributorsArray = [];
-//     contributors.map(username => contributorsArray.push(username.trim()));
-//     let contributorsString = "";
-//     contributorsArray.map(username => {
-//         contributorsString += `[${username}]("https://github.com/${username}")\n \n`
-//     })
-//     let tableOfContents = "";
-//     data.table.map(contents => {
-//         tableOfContents += `*[${contents}](#${contents.toLowerCase().trim()})\n \n`
-//     })
-
-    
-    
-
-//     fs.writeFile(`${data.title}.md`), readmeTemplate, function(err) {
-//         if(err) {
-//             console.log(err);
-//             throw err;
-//         } else {
-//             console.log("It worked!");
-//         }
-//     }
-// };
-
 
 
