@@ -18,7 +18,7 @@
 
 
 ## License
-This project is licensed under: MIT license.
+This project is licensed under: MIT License ![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg).
 
 ## Contributing
 
@@ -27,6 +27,6 @@ This project is licensed under: MIT license.
 
 
 ## Questions
-<img src = "https://avatars3.githubusercontent.com/u/57693708?v=4" alt ="GitHub user picture"/>
+<img src = "https://avatars0.githubusercontent.com/u/60808836?v=4" alt ="GitHub user picture"/>
 <br/>
-For any questions or comments, email Emmett Brady directly at <a href ="mailtoemmett.brady@gmail.com">emmett.brady@gmail.com</a>
+For any questions or comments, email tassiashibuya directly at <a href ="mailtotassim@gmail.com">tassim@gmail.com</a>.

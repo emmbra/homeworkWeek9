@@ -2,19 +2,19 @@ function generateMarkdown(data) {
 let license = data.license;
 switch (license) {
   case "MIT License":
-    license = "[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)]";
+    data.license = "MIT License ![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)";
     break;
   case "GNU General Public License v3":
-    license = "[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)]";
+    data.license = "GNU General Public License v3 ![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)";
     break;
   case "Apache License":
-    license = "[![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)]";
+    data.license = "Apache License ![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)";
     break;
   case "Mozilla Public License 2.0":
-    license = "[![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)]";
+    data.license = "Mozilla Public License 2.0 ![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)";
     break;
   default:
-    license = license = "[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)]";
+    data.license = "MIT License ![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)";
     break;
 }
 return `
