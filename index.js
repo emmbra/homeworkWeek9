@@ -47,11 +47,6 @@ function readmePrompts () {
             'Mozilla Public License 2.0'
         ]
     },
-    // {
-    //     type: "input",
-    //     message: "What license is this project under?",
-    //     name: "license"
-    // },
     {
         type: "input",
         message: "Who are the contributors to this project?",
@@ -70,8 +65,6 @@ async function init() {
         const readmeAnswers = await readmePrompts();
         await api.getUser(readmeAnswers.username).then(function (result) {
             console.log(result);
-             
-
             readmeAnswers.image = result.data.avatar_url;
             readmeAnswers.name = result.data.name;
         });
