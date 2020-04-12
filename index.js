@@ -1,6 +1,7 @@
 const fs = require("fs");
 const inquirer = require("inquirer");
-const axios = require("axios");
+const api = require("./utils/api.js");
+const generateMarkdown = require("./utils/generateMarkdown.js");
 
 const questions = [
     {
@@ -79,39 +80,6 @@ function writeToFile(data) {
     data.license === "Apache License 2.0" ? "[![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)]" :
     "[![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)]" 
 
-
-    // using template literal to build structure of readme
-    let readmeTemplate = `
-    # ${data.title}
-    ${license}(${data.html_url})
-
-    ## Description
-    ${data.description}
-
-    ## Table of Contents
-    ${tableOfContents}
-
-    ## Installation
-    ${data.installation}
-
-    ## Usage
-    ${data.usage}
-
-    ## License
-    This project is licensed under the ${data.license} license.
-
-    ## Contributing
-    ${contributors}
-
-    ## Tests
-    In terminal, run the following command:
-
-    npm test
-
-    ## Questions
-    <img src = "${data.avatar_url}" alt ="profile avatar"/>
-    Please contact [${data.login}](${data.html_url}) directly at ${data.email}.
-    `
 
     fs.writeFile(`${data.title}.md`), readmeTemplate, function(err) {
         if(err) {
