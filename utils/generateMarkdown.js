@@ -1,30 +1,31 @@
 function generateMarkdown(data) {
 return `
 # ${data.title}
-${license}(${data.html_url})
 
 ## Description
 ${data.description}
 
 ## Table of Contents
-${tableOfContents}
+* [Installation](##Installation)
+* [Usage](##Usage)
+* [License](##License)
+* [Tests](##Tests) 
+* [Contribute](##Contribute)
 
 ## Installation
-${data.installation}
+${data.install}
 
 ## Usage
 ${data.usage}
 
 ## License
-This project is licensed under the ${data.license} license.
+This project is licensed under: ${data.license} license.
 
 ## Contributing
-${contributors}
+${data.contributors}
 
 ## Tests
-In terminal, run the following command:
-
-npm test
+${data.test}
 
 ## Questions
 <img src = "${data.avatar_url}" alt ="profile avatar"/>

@@ -4,7 +4,7 @@ const api = require("./utils/api.js");
 const generateMarkdown = require("./utils/generateMarkdown.js");
 const util = require("util");
 const asyncWriteFile = util.promisify(fs.writeFile);
-function questionPrompts () {
+function readmePrompts () {
     return inquirer.prompt([
     {
         type: "input",
@@ -13,24 +13,23 @@ function questionPrompts () {
     },
     {
         type: "input",
-        message: "What is the project's title?",
+        message: "What is your GitHub email?",
+        name: "email"
+    },
+    {
+        type: "input",
+        message: "What is the project title?",
         name: "title"
     },
     {
         type: "input",
-        message: "What is the project's description?",
+        message: "What is the project description?",
         name: "description"
-    },
-    {
-        type: "checkbox",
-        message: "What should be included in the table of contents?",
-        name: "table",
-        choices: ['Installation', 'Usage', 'License', 'Contributing', 'Tests', 'Questions']
     },
     {
         type: "input",
         message: "What are the steps to install this project?",
-        name: "installation"
+        name: "install"
     },
     {
         type: "input",
@@ -38,20 +37,14 @@ function questionPrompts () {
         name: "usage"
     },
     {
-        type: "list",
-        message: "Please select a license for this project:",
-        name: "license",
-        choices: [
-            'MIT license',
-            'GNU General Public License v3',
-            'Apache License 2.0',
-            'Mozilla Public License 2.0'
-        ]
+        type: "input",
+        message: "What license is this project under?",
+        name: "license"
     },
     {
         type: "input",
-        message: "Who are the contributors to this project? (List github usernames separated by commas.)",
-        name: "contributing"
+        message: "Who are the contributors to this project?",
+        name: "contributors"
     },
     {
         type: "input",
@@ -61,6 +54,35 @@ function questionPrompts () {
 ]);
 }
 
+async function init() {
+    try {
+        const readmeAnswers = await readmePrompts();
+        await api.getUser(readmeAnswers.username).then(function (result) {
+            readmeAnswers.image = result.data.avatar_url;
+            readmeAnswers.name = result.data.name;
+        });
+        const readmeMD = generateMarkdown(readmeAnswers);
+        await asyncWriteFile("README.md", readmeMD);
+        console.log("README.md successfully created!");
+    } catch (err) {
+        console.log("Error" + err);
+    }
+}
+
+
+init();
+
+// {
+//     type: "list",
+//     message: "Please select a license for this project:",
+//     name: "license",
+//     choices: [
+//         'MIT license',
+//         'GNU General Public License v3',
+//         'Apache License 2.0',
+//         'Mozilla Public License 2.0'
+//     ]
+// },
 // function writeToFile(data) {
 //     console.log(data);
 //     // variables
@@ -95,11 +117,4 @@ function questionPrompts () {
 // };
 
 
-function init() {
-    try {
-        inquirer.prompt(questions).then(response => {
-    }
-    
 
-
-init();
