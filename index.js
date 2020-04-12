@@ -58,10 +58,43 @@ const questions = [
 ];
 
 function writeToFile(fileName, data) {
+    console.log(data);
+
+    // using template literal to build structure of readme
+    let readmeTemplate =
+    `
+    # ${data.title}
+    ${license}(${data.html_url})
+
+    ## Description
+    ${data.description}
+
+    ## Table of Contents
+    ${content}
+
+    ## Installation
+    ${data.installation}
+
+    ## Usage
+    ${data.usage}
+
+    ## License
+    This project is licensed under the ${data.license} license.
+
+    ## Contributing
+    ${contributors}
+
+    ## Tests
+    ${tests}
+
+    ## Questions
+    <img src = "${data.avatar_url}" alt ="profile avatar"/>
+    Please contact [$(data.login)](${data.html_url}) at ${data.blog}.
+    `
 }
 
-function init() {
 
-}
+
+function init() 
 
 init();
