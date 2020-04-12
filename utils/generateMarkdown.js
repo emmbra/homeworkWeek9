@@ -1,25 +1,30 @@
 function generateMarkdown(data) {
-let license = data.license;
-// switch statement to insert badge based on user selected license
-switch (license) {
-  case "MIT License":
-    data.license = "MIT License ![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)";
-    break;
-  case "GNU General Public License v3":
-    data.license = "GNU General Public License v3 ![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)";
-    break;
-  case "Apache License":
-    data.license = "Apache License ![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)";
-    break;
-  case "Mozilla Public License 2.0":
-    data.license = "Mozilla Public License 2.0 ![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)";
-    break;
-  default:
-    data.license = "MIT License ![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)";
-    break;
-}
-// README text template
-return `
+  let license = data.license;
+  // switch statement to insert badge based on user selected license
+  switch (license) {
+    case "MIT License":
+      data.license =
+        "MIT License ![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)";
+      break;
+    case "GNU General Public License v3":
+      data.license =
+        "GNU General Public License v3 ![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)";
+      break;
+    case "Apache License":
+      data.license =
+        "Apache License ![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)";
+      break;
+    case "Mozilla Public License 2.0":
+      data.license =
+        "Mozilla Public License 2.0 ![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)";
+      break;
+    default:
+      data.license =
+        "MIT License ![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)";
+      break;
+  }
+  // README text template
+  return `
 # ${data.title}
 
 ## Description
