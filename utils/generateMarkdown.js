@@ -38,14 +38,14 @@ ${data.description}
 * [Contributors](#Contributors)
 * [Questions](#Questions)
 
-##
+## Installation
 ${data.install}
 
 ## Usage
 ${data.usage}
 
 ## License
-This project is licensed under: ${data.license}.
+This project is licensed under: ${data.license}
 
 ## Tests
 ${data.tests}

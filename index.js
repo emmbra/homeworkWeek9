@@ -1,6 +1,6 @@
 // declare all my variable requirements
 const fs = require("fs");
-const inquirer = require("inquirer");
+
 // require modularized api call from axios
 const api = require("./utils/api.js");
 // require modularized function for generating markdown files
