@@ -38,7 +38,7 @@ ${data.description}
 * [Contributors](#Contributors)
 * [Questions](#Questions)
 
-## Installation
+##
 ${data.install}
 
 ## Usage

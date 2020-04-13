@@ -4,7 +4,7 @@ const api = {
     try {
       const ghUserName = `https://api.github.com/users/${username}`;
       return axios.get(ghUserName);
-    } catch (err) {
+    } catch (e) {
     }
   }
 };
