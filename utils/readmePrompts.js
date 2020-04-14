@@ -7,30 +7,34 @@ function readmePrompts() {
         message: "What is your GitHub username?",
         name: "username",
         validate: function validateUsername(username){
-          username !== "" 
-            ? true 
-            : ("Username cannot be blank!");
-          // if (username === "") {
-          //   return "Username cannot be blank"
-          // } else {
-          //   return true;
-          // }
+          // username !== "" 
+          //   ? true 
+          //   : ("Username cannot be blank!");
+          if (username === "") {
+            return "Username cannot be blank!"
+          } else {
+            return true;
+          }
         }
       },
-      {
-        type: "input",
-        message: "What is your GitHub email?",
-        name: "email",
-        validate: function validateEmail(email){
-            return email !== '';
-        }
-      },
+      // {
+      //   type: "input",
+      //   message: "What is your GitHub email?",
+      //   name: "email",
+      //   validate: function validateEmail(email){
+      //       return email !== '';
+      //   }
+      // },
       {
         type: "input",
         message: "What is the project title?",
         name: "title",
         validate: function validateTitle(title){
-            return title !== '';
+          if (title === "") {
+            return "Title cannot be blank!"
+          } else {
+            return true;
+          }
         }
       },
       {

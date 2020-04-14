@@ -26,6 +26,7 @@ async function init() {
       console.log(result);
       readmeAnswers.image = result.data.avatar_url;
       readmeAnswers.name = result.data.name;
+      readmeAnswers.email = result.data.email;
     });
     const readmeMD = generateMarkdown(readmeAnswers);
     await writeFileAsync("./generated-readme/README.md", readmeMD);
