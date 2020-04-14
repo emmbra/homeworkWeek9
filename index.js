@@ -40,6 +40,7 @@ const init = async () => {
 init();
 
 // examples of how to deal with invalid github username
+// most likely need to use recursion to keep checking until username is valid
 
 // function
 // prompt => username again, "it was an invalid username"
