@@ -13,10 +13,10 @@ generates README files based on user input
 * [Questions](#Questions)
 
 ## Installation
-clone github repo, install all dependencies, node ./index.js
+clone github repo, install dependencies, node ./index.js
 
 ## Usage
-to generated README files
+to generate README files
 
 ## License
 This project is licensed under: MIT License ![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)
