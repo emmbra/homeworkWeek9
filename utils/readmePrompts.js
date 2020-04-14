@@ -7,7 +7,14 @@ function readmePrompts() {
         message: "What is your GitHub username?",
         name: "username",
         validate: function validateUsername(username){
-            return username !== '';
+          username !== "" 
+            ? true 
+            : ("Username cannot be blank!");
+          // if (username === "") {
+          //   return "Username cannot be blank"
+          // } else {
+          //   return true;
+          // }
         }
       },
       {

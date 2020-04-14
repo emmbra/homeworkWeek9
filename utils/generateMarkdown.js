@@ -58,6 +58,7 @@ ${data.contributors}
 <br/>
 For any questions or comments, email ${data.name} directly at <a href ="mailto${data.email}">${data.email}</a>.
 <br/>
+<br/>
 <iframe src="https://githubbadge.appspot.com/${data.username}" style="border: 0;height: 111px;width: 200px;overflow: hidden;" frameBorder="0"></iframe>
 `;
 }
