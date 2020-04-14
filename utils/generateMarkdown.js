@@ -1,4 +1,5 @@
-function generateMarkdown(data) {
+// function generateMarkdown(data) { pre-ES6
+const generateMarkdown = () => {
   let license = data.license;
   // switch statement to insert badge based on user selected license
   switch (license) {
