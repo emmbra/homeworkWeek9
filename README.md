@@ -42,7 +42,7 @@ Difficulties included:
 
 ## Screenshots
 
-![GIF of Good README Generator]()
+![GIF of Good README Generator](https://github.com/emmbra/homeworkWeek9/blob/master/assets/img/Homework%20Week%209%20-%20App%20Demo.gif)
 
 ## Credits
 
