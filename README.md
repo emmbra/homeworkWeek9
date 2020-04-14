@@ -4,6 +4,7 @@
 Created a command-line application that dynamically generates a README.md based on user input. In your terminal, navigate to the folder containing the index.js and the application can be invoked using the following commands:
 
 npm i (to install all dependencies)
+
 node .\index.js (to launch the application)
 
 The application will prompt the user for input about the following README fields:
