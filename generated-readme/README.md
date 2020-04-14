@@ -1,8 +1,8 @@
 
-# 123
+# Good README Generator
 
 ## Description
-
+generates README files based on user input
 
 ## Table of Contents
 * [Installation](#Installation)
@@ -13,24 +13,24 @@
 * [Questions](#Questions)
 
 ## Installation
-
+clone github repo, install all dependencies, node ./index.js
 
 ## Usage
-
+to generated README files
 
 ## License
 This project is licensed under: MIT License ![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)
 
 ## Tests
-
+console.log but no official testing
 
 ## Contributors
-
+emmbra
 
 ## Questions
-<img src = "https://avatars0.githubusercontent.com/u/425687?v=4" alt ="GitHub user picture"/>
+<img src = "https://avatars3.githubusercontent.com/u/57693708?v=4" alt ="GitHub user picture"/>
 
-For any questions or comments, email Adam Pritchard directly at <a href ="mailtopritchard.adam@gmail.com">pritchard.adam@gmail.com</a>.
+For any questions or comments, email Emmett Brady directly at <a href ="mailtoemmett.brady@gmail.com">emmett.brady@gmail.com</a>.
 
 
-<iframe src="https://githubbadge.appspot.com/adam-p" style="border: 0;height: 111px;width: 200px;overflow: hidden;" frameBorder="0"></iframe>
+<iframe src="https://githubbadge.appspot.com/emmbra" style="border: 0;height: 111px;width: 200px;overflow: hidden;" frameBorder="0"></iframe>
