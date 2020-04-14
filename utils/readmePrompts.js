@@ -7,6 +7,7 @@ function readmePrompts() {
         message: "What is your GitHub username?",
         name: "username",
         validate: function validateUsername(username){
+          // attempt to turn if/else statement into a ternary: currently not working
           // username !== "" 
           //   ? true 
           //   : ("Username cannot be blank!");
@@ -17,14 +18,6 @@ function readmePrompts() {
           }
         }
       },
-      // {
-      //   type: "input",
-      //   message: "What is your GitHub email?",
-      //   name: "email",
-      //   validate: function validateEmail(email){
-      //       return email !== '';
-      //   }
-      // },
       {
         type: "input",
         message: "What is the project title?",

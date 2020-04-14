@@ -1,5 +1,5 @@
 
-# Project 123
+# PROJECT
 
 ## Description
 
@@ -29,8 +29,8 @@ This project is licensed under: MIT License ![License: MIT](https://img.shields.
 
 ## Questions
 <img src = "https://avatars3.githubusercontent.com/u/57693708?v=4" alt ="GitHub user picture"/>
-<br/>
+
 For any questions or comments, email Emmett Brady directly at <a href ="mailtoemmett.brady@gmail.com">emmett.brady@gmail.com</a>.
-<br/>
-<br/>
+
+
 <iframe src="https://githubbadge.appspot.com/emmbra" style="border: 0;height: 111px;width: 200px;overflow: hidden;" frameBorder="0"></iframe>
