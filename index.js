@@ -10,7 +10,7 @@ const api = require("./utils/api.js");
 const generateMarkdown = require("./utils/generateMarkdown.js");
 // require modularized function for readme prompts
 const readmePrompts = require("./utils/readmePrompts.js");
-// require util to make functions promises
+// require util so can promisify functions
 const util = require("util");
 // promisify the function so it can be used synchronously and so .then and .catch can be called on it
 const writeFileAsync = util.promisify(fs.writeFile);
@@ -20,22 +20,120 @@ const writeFileAsync = util.promisify(fs.writeFile);
 // updating everything to ES6+ syntax, keeping old syntax commented out for reference
 // async function init() { -- pre-ES6
 const init = async () => {
-  // ES6
+  // ES6 arrow function with async
   try {
     const readmeAnswers = await readmePrompts();
-    await api.getUser(readmeAnswers.username).then((result) => {
-      // (function (result) {
-      console.log(result);
-      readmeAnswers.image = result.data.avatar_url;
-      readmeAnswers.name = result.data.name;
-      readmeAnswers.email = result.data.email;
-    });
-    const readmeMD = generateMarkdown(readmeAnswers);
+    const result = await api.getUser(readmeAnswers.username);
+      // const {name, email, avatar_url} = result.data; destructuring example
+    readmeAnswers.image = result.data.avatar_url;
+    readmeAnswers.name = result.data.name;
+    readmeAnswers.email = result.data.email;
+    const readmeMD = await generateMarkdown(readmeAnswers);
     await writeFileAsync("./generated-readme/README.md", readmeMD);
     console.log("README.md successfully created!");
   } catch (e) {
     console.log("Error!" + e);
+
   }
 };
 
 init();
+
+// examples of how to deal with invalid github username
+
+// function
+// prompt => username again, "it was an invalid username"
+
+// function revStr(str){
+//   if (str === '') return '';
+//   return revStr(str.substr(1)) + str[0];
+// }
+// revStr('cat');
+// // cat
+// // at + c
+// // t + a
+// // "" + t
+
+// try {
+//   const readmeAnswers = await readmePrompts();
+//   const result = await api.getUser(readmeAnswers.username);
+//     // const {name, email, avatar_url} = result.data; destructuring example
+//   readmeAnswers.image = result.data.avatar_url;
+//   readmeAnswers.name = result.data.name;
+//   readmeAnswers.email = result.data.email;
+//   const readmeMD = await generateMarkdown(readmeAnswers);
+//   await writeFileAsync("./generated-readme/README.md", readmeMD);
+//   console.log("README.md successfully created!");
+// } catch (e) {
+//   console.log("Error!" + e);
+//   // call function that prompts for username 
+//   // run this function again (recursively)
+// }
+
+// try {
+//   const result = await api.getUser(readmeAnswers.username);
+// } catch (e) {
+//   console.log("Error!" + e);
+
+// }
+
+// try {
+//   const readmeAnswers = await readmePrompts();
+// } catch (e) {
+//   console.log("Error!" + e);
+// }
+
+// try {
+//   readmeAnswers.image = result.data.avatar_url;
+//   readmeAnswers.name = result.data.name;
+//   readmeAnswers.email = result.data.email;
+//   const readmeMD = await generateMarkdown(readmeAnswers);
+//   await writeFileAsync("./generated-readme/README.md", readmeMD);
+//   console.log("README.md successfully created!");
+// } catch (e) {
+//   console.log("Error!" + e);
+// }
+
+
+
+// try {
+//   const readmeAnswers = await readmePrompts();
+//   const result = await api.getUser(readmeAnswers.username) || //call function here;
+//     // const {name, email, avatar_url} = result.data; destructuring example
+//   readmeAnswers.image = result.data.avatar_url;
+//   readmeAnswers.name = result.data.name;
+//   readmeAnswers.email = result.data.email;
+//   const readmeMD = await generateMarkdown(readmeAnswers);
+//   await writeFileAsync("./generated-readme/README.md", readmeMD);
+//   console.log("README.md successfully created!");
+// } catch (e) {
+//   console.log("Error!" + e);
+
+// }
+
+// // this function
+// // prompt for user name again
+// // then call result again
+
+
+
+// try {
+//   const readmeAnswers = await readmePrompts();
+//   const result = await api.getUser(readmeAnswers.username);
+//   if (result === undefined) {
+//     // prompt and recurse
+//   } else {
+//     readmeAnswers.image = result.data.avatar_url;
+//     readmeAnswers.name = result.data.name;
+//     readmeAnswers.email = result.data.email;
+//     const readmeMD = await generateMarkdown(readmeAnswers);
+//     await writeFileAsync("./generated-readme/README.md", readmeMD);
+//     console.log("README.md successfully created!");
+//   }
+// } catch (e) {
+//   console.log("Error!" + e);
+
+// }
+
+// [1,5,2,8,3,4,5,4,6,3]
+// [1,5,2,8,3]

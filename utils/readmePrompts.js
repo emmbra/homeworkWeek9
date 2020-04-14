@@ -8,15 +8,14 @@ const readmePrompts = () => {
       message: "What is your GitHub username?",
       name: "username",
       validate: function validateUsername(username) {
-        // attempt to turn if/else statement into a ternary: currently not working
-        // username !== ""
-        //   ? true
-        //   : ("Username cannot be blank!");
-        if (username === "") {
-          return "Username cannot be blank!";
-        } else {
-          return true;
-        }
+        // attempt to turn if/else statement into a ternary
+        const result = username !== "" ? true : "Username cannot be blank!";
+        return result;
+        // if (username === "") {
+        //   return "Username cannot be blank!";
+        // } else {
+        //   return true;
+        // }
       },
     },
     {
@@ -66,7 +65,7 @@ const readmePrompts = () => {
       type: "input",
       message: "How has this project been tested?",
       name: "tests",
-    },
+    }
   ]);
 };
 

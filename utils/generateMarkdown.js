@@ -1,6 +1,7 @@
 // function generateMarkdown(data) {
-const generateMarkdown = (data) => {
-  let license = data.license;
+const generateMarkdown = data => {
+  // destructure license from data
+  let { license } = data;
   // switch statement to insert badge based on user selected license
   switch (license) {
     case "MIT License":

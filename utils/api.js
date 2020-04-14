@@ -1,6 +1,6 @@
 const axios = require("axios");
 const api = {
-  getUser(username) {
+  getUser: username => {
     try {
       const config = {
         headers: {                //.env file always accessed with process.env
